@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
     dev.berkshelf.enabled = true 
     dev.vm.network :private_network, ip: "33.33.33.18"
     dev.vm.synced_folder './', '/home/vagrant/fulkku', type: 'nfs'
-    dev.vm.provision :file, source: '~/.ssh/fulkku.pub', destination: '/home/vagrant/.ssh/fulkku.pub'
+    dev.vm.provision :file, source: '~/.ssh/id_rsa.pub', destination: '/home/vagrant/.ssh/id_rsa.pub'
     dev.vm.provision :chef_solo do |chef|
       chef.run_list = [
         "dokku::bootstrap",
